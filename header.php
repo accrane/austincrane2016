@@ -17,8 +17,7 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
-<!-- Need to Declare the base url here for our Angular App -->
-<base href="/austincrane/austincrane.me/site/">
+
 
 <?php wp_head(); ?>
 </head>
@@ -31,26 +30,51 @@
 
 	<header id="masthead" class="site-header" role="banner">
 		<div class="wrapper">
-			<div class="site-branding">
+			<!-- <div class="site-branding">
 				<?php
 				if ( is_front_page() && is_home() ) : ?>
-					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
 				<?php else : ?>
-					<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+					<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
 				<?php
 				endif;
 
 				$description = get_bloginfo( 'description', 'display' );
 				if ( $description || is_customize_preview() ) : ?>
+				<div class="clear"></div>
 					<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
 				<?php
 				endif; ?>
-			</div><!-- .site-branding -->
+			</div>.site-branding -->
 
-			<nav id="site-navigation" class="main-navigation" role="navigation">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'acstarter' ); ?></button>
-				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-			</nav><!-- #site-navigation -->
+			<!-- <div id="connect"><a href="#connect">Connect with me</a></div> -->
+
+
+			<div id="nav-trigger" class="nav-trigger open">
+  <span class="line"></span>
+  <span class="line"></span>
+  <span class="line"></span>
+</div>
+<nav id="nav" class="out">
+  <ul>
+    <li><span class="nav-label">
+    	<a href="<?php bloginfo('url'); ?>">Home</a>
+    </span></li>
+    <li><span class="nav-label">
+    	<a href="<?php bloginfo('url'); ?>/work">Work</a>
+    </span></li>
+    <li><span class="nav-label">
+    	<a href="<?php bloginfo('url'); ?>/blog">Blog</a>
+    </span></li>
+    <li><span class="nav-label">
+    	<a href="<?php bloginfo('url'); ?>/contact">Contact</a>
+    </span></li>
+   
+  </ul>
+</nav>
+
+
+			
 	</div><!-- wrapper -->
 	</header><!-- #masthead -->
 
