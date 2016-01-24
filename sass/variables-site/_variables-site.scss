@@ -1,3 +1,143 @@
 @import "colors";
 @import "typography";
 @import "structure";
+
+/* Animations */
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes show-icon-bar {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 4em;
+  }
+}
+
+@keyframes show-icon-bar {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 4em;
+  }
+}
+
+@-webkit-keyframes show-icon {
+  0% {
+    opacity: 0;
+    -webkit-transform: rotateZ(-40deg);
+            transform: rotateZ(-40deg);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: rotateZ(0);
+            transform: rotateZ(0);
+  }
+}
+
+@keyframes show-icon {
+  0% {
+    opacity: 0;
+    -webkit-transform: rotateZ(-40deg);
+            transform: rotateZ(-40deg);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: rotateZ(0);
+            transform: rotateZ(0);
+  }
+}
+
+@-webkit-keyframes show-detail-container {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 13.5em;
+  }
+}
+
+@keyframes show-detail-container {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 13.5em;
+  }
+}
+
+@-webkit-keyframes pop-in {
+  0% {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1)
+  }
+}
+
+@keyframes pop-in {
+  0% {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1)
+  }
+}
+
+@-webkit-keyframes drop-card {
+  100% {
+    bottom: -100%;
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+    opacity: 0;
+  }
+}
+
+@keyframes drop-card {
+  100% {
+    bottom: -100%;
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+    opacity: 0;
+  }
+}

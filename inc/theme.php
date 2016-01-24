@@ -6,7 +6,8 @@
  *
  * @package ACStarter
  */
-
+// hide admin bar
+show_admin_bar( false );
 /*-------------------------------------
 	Custom client login, link and title.
 ---------------------------------------*/

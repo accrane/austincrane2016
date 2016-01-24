@@ -1,3 +1,6 @@
+@import url(http://fonts.googleapis.com/css?family=Patua+One);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
 body,
 button,
 input,
@@ -7,6 +10,17 @@ textarea {
 	font-family: $font__main;
 	@include font-size(1);
 	line-height: $font__line-height-body;
+}
+
+
+body {
+  background: #fff;
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+p {
+  line-height: 1.5;
 }
 
 @import "headings";

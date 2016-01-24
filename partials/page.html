@@ -1,0 +1,10 @@
+page
+<div ng-controller="SingleContent">
+	<header>
+		<h1>{{ page.title.rendered }}</h1>
+	</header>
+	<div class="post-content">
+		<div ng-bind-html="page.content.rendered"></div>
+	</div><!-- post content -->
+</div>
+

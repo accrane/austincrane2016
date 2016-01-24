@@ -45,9 +45,9 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 	## Captions
 	## Galleries
 --------------------------------------------------------------*/
-@import "variables-site/variables-site";
+@import 'bourbon';
 @import "mixins/mixins-master";
-
+@import 'variables-site/variables-site';
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/

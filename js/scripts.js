@@ -3,6 +3,9 @@
 // Where my data is coming from
 var apiurl = 'wp-json/wp/v2/posts';
 
+// Where my data is coming from
+var pagesurl = 'wp-json/wp/v2/pages';
+
 // Where my data is coming from => categories
 var catsurl = 'wp-json/wp/v2/categories';
 
@@ -10,7 +13,7 @@ var catsurl = 'wp-json/wp/v2/categories';
 var tagsurl = 'wp-json/wp/v2/tags';
 
 // My App! And it's dependencies.
-var myApp = angular.module('app', ['ngRoute', 'ngSanitize']);
+var myApp = angular.module('app', ['ngRoute', 'ngSanitize', 'ngAnimate']);
 
 
 // 	Routers
@@ -23,7 +26,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
 		templateUrl: myLocalized.partials + 'main.html',
 		controller: 'Main'
 	})
-	.when('/:slug', {
+	.when('/blog/:slug', {
 		templateUrl: myLocalized.partials + 'single.html',
 		controller: 'SingleContent'
 	})
@@ -31,8 +34,13 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
 		templateUrl: myLocalized.partials + 'main.html',
 		controller: 'Category'
 	})
+	.when('/page/:slug', {
+		templateUrl: myLocalized.partials + 'page.html',
+		controller: 'Paged'
+	})
 	.otherwise({
-		redirectTo: '/'
+		templateUrl: myLocalized.partials + '404.html',
+		controller: '404'
 	});
 }]);
 
@@ -45,10 +53,18 @@ myApp.controller('Main', ['$scope', '$http', function($scope, $http) {
 	$http.get(catsurl).success(function(response){
 		$scope.categories = response;
 	});
+	$http.get(pagesurl).success(function(data){
+		$scope.page = data;
+	});
 }]);
 myApp.controller('SingleContent', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
 	$http.get(apiurl + '/?filter[name]=' + $routeParams.slug).success(function(data){
 		$scope.post = data[0];
+	});
+}]);
+myApp.controller('Paged', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+	$http.get(pagesurl + '/?filter[name]=' + $routeParams.slug).success(function(data){
+		$scope.page = data[0];
 	});
 }]);
 //Category controller
@@ -68,6 +84,12 @@ myApp.controller('Category', ['$scope', '$routeParams', '$http', function($scope
 	});
 }]);
 
+
+//404 controller
+myApp.controller('404', function() {
+	document.querySelector('title').innerHTML = 'Page not found';
+});
+
 // 	Custom Directive Search Form
 //_________________________________________________
 myApp.directive('searchForm', function() {
@@ -85,6 +107,7 @@ myApp.directive('searchForm', function() {
 				if ( $scope.filter.s.length >= 3 ) {
 					$http.get(apiurl + '/?filter[s]=' + $scope.filter.s).success(function(response){
 						$scope.posts = response;
+						//$scope.pages = response;
 					});
 				}
 			};
@@ -93,7 +116,26 @@ myApp.directive('searchForm', function() {
 });
 
 
+myApp.animation('.slide', [function() {
+  return {
+    // make note that other events (like addClass/removeClass)
+    // have different function input parameters
+    enter: function(element, doneFn) {
+      jQuery(element).fadeIn(1000, doneFn);
 
+      // remember to call doneFn so that angular
+      // knows that the animation has concluded
+    },
+
+    move: function(element, doneFn) {
+      jQuery(element).fadeIn(1000, doneFn);
+    },
+
+    leave: function(element, doneFn) {
+      jQuery(element).fadeOut(1000, doneFn);
+    }
+  }
+}]);
 
 
 

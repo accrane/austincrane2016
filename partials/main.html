@@ -1,3 +1,11 @@
+<p>Pages</p>
+<ul>
+	<li ng-repeat="page in pages" >
+		<a href="page/{{page.slug}}">
+			{{page.title.rendered}}
+		</a>
+	</li>
+</ul>
 <search-form></search-form>
 
 <p>Categories:</p>
@@ -9,9 +17,12 @@
 </ul>
 <p>{{pageTitle}}</p>
 <ul>
-	<li ng-repeat="post in posts">
-		<a href="{{post.slug}}">
+	<li ng-repeat="post in posts" class="slide">
+		<a href="blog/{{post.slug}}">
 			{{post.title.rendered}}
 		</a>
 	</li>
 </ul>
+
+
+

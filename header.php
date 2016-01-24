@@ -17,7 +17,8 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
-
+<!-- Need to Declare the base url here for our Angular App -->
+<base href="/austincrane/austincrane.me/site/">
 
 <?php wp_head(); ?>
 </head>
@@ -50,7 +51,7 @@
 			<!-- <div id="connect"><a href="#connect">Connect with me</a></div> -->
 
 
-			<div id="nav-trigger" class="nav-trigger open">
+<!-- 			<div id="nav-trigger" class="nav-trigger open">
   <span class="line"></span>
   <span class="line"></span>
   <span class="line"></span>
@@ -59,6 +60,9 @@
   <ul>
     <li><span class="nav-label">
     	<a href="<?php bloginfo('url'); ?>">Home</a>
+    </span></li>
+    <li><span class="nav-label">
+    	<a href="<?php bloginfo('url'); ?>/page/about">About</a>
     </span></li>
     <li><span class="nav-label">
     	<a href="<?php bloginfo('url'); ?>/work">Work</a>
@@ -71,8 +75,24 @@
     </span></li>
    
   </ul>
-</nav>
-
+</nav> -->
+<div class="sitenav">
+<li>
+<a href="<?php bloginfo('url'); ?>">Home</a>
+</li>
+<li>
+<a href="<?php bloginfo('url'); ?>/page/about">About</a>
+</li>
+<li>
+<a href="<?php bloginfo('url'); ?>/page/work">Work</a>
+</li>
+<li>
+<a href="<?php bloginfo('url'); ?>/page/blog">Blog</a>
+</li>
+<li>
+<a href="<?php bloginfo('url'); ?>/page/contact">Contact</a>
+</li>
+</div>
 
 			
 	</div><!-- wrapper -->
